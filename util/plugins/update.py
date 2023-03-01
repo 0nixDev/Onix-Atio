@@ -14,7 +14,7 @@ from util.plugins.commun import *
 def search_for_updates():
     clear()
     setTitle("@TIO Checking For Updates...")
-    r = requests.get("https://github.com/0nixDev/Onix-Atio/releases/tag/python")
+    r = requests.get("https://github.com/0nixDev/Onix-Atio/releases/tag/v1.2.1")
 
     soup = str(BeautifulSoup(r.text, 'html.parser'))
     s1 = re.search('<title>', soup)
@@ -31,7 +31,7 @@ def search_for_updates():
                     ╚═╝  ╚═══╝╚══════╝ ╚══╝╚══╝      ╚═════╝ ╚═╝     ╚═════╝ ╚═╝  ╚═╝   ╚═╝   ╚══════╝╚═╝\n'''.replace('█', f'{b}█{y}'))
         discserver()
         print(f'''{y}[{Fore.RED}!{y}]{w}Looks like this @TIO {THIS_VERSION} is outdated...''')
-        soup = BeautifulSoup(requests.get("https://github.com/0nixDev/Onix-Atio/releases/tag/python").text, 'html.parser')
+        soup = BeautifulSoup(requests.get("https://github.com/0nixDev/Onix-Atio/releases/tag/v1.2.1").text, 'html.parser')
         for link in soup.find_all('a'):
             if "releases/download" in str(link):
                 update_url = f"https://github.com/{link.get('href')}"
